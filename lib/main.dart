@@ -1,16 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-
+import 'package:project_restaurant/src/pages/login_page.dart';
+import 'package:project_restaurant/src/pages/login_pages_second.dart';
 import 'home_trips.dart';
 
 void main() {
-
-  SystemChrome.setSystemUIOverlayStyle(
-      const SystemUiOverlayStyle(
-          statusBarColor: Colors.transparent,
-          statusBarBrightness: Brightness.light
-      )
-  );
+  SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
+      statusBarColor: Colors.transparent,
+      statusBarBrightness: Brightness.light));
 
   runApp(const MyApp());
 }
@@ -22,15 +19,17 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'app Restaurante',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
-
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.red,
       ),
-      home: Scaffold(
-        body: HomeTrips()
-      ),
-
+      initialRoute: LoginPage.id,
+      routes: {
+        LoginPage.id: (context) => LoginPage(),
+        LoginPageSecond.id: (context) => LoginPageSecond(),
+      },
+      home: Scaffold(body: HomeTrips()),
     );
   }
 }
@@ -102,7 +101,7 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             const Text(
-              'You have pushed the button this many times:',
+              'hola',
             ),
             Text(
               '$_counter',
